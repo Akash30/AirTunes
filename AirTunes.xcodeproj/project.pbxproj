@@ -1,0 +1,636 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		989A7EC41C531C4000E41DEE /* ParseDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A7EC31C531C4000E41DEE /* ParseDataManager.m */; };
+		989A7ED71C5321CC00E41DEE /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 989A7ED11C5321CC00E41DEE /* Parse.framework */; };
+		989A7ED81C5321CC00E41DEE /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 989A7ED21C5321CC00E41DEE /* Bolts.framework */; };
+		989A7EEA1C53246500E41DEE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 989A7EE91C53246500E41DEE /* libsqlite3.tbd */; };
+		989A7EEC1C53247100E41DEE /* libz.1.1.3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 989A7EEB1C53247100E41DEE /* libz.1.1.3.tbd */; };
+		989A7EEE1C53248000E41DEE /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 989A7EED1C53248000E41DEE /* libstdc++.6.tbd */; };
+		989A7EF71C53251200E41DEE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 989A7EDF1C53242D00E41DEE /* AudioToolbox.framework */; };
+		989A7EFA1C532EEE00E41DEE /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A7EF91C532EEE00E41DEE /* LogInViewController.m */; };
+		989A7F041C5361FA00E41DEE /* CreateGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A7F031C5361FA00E41DEE /* CreateGroupViewController.m */; };
+		989A7F071C537F1800E41DEE /* PlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A7F061C537F1800E41DEE /* PlaylistViewController.m */; };
+		989A7F0A1C53993F00E41DEE /* RequestSongsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A7F091C53993F00E41DEE /* RequestSongsViewController.m */; };
+		98ECC1611C5204D4009490C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98ECC1601C5204D4009490C8 /* main.m */; };
+		98ECC1641C5204D4009490C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98ECC1631C5204D4009490C8 /* AppDelegate.m */; };
+		98ECC16A1C5204D4009490C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98ECC1681C5204D4009490C8 /* Main.storyboard */; };
+		98ECC16C1C5204D4009490C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98ECC16B1C5204D4009490C8 /* Assets.xcassets */; };
+		98ECC17A1C5204D4009490C8 /* AirTunesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98ECC1791C5204D4009490C8 /* AirTunesTests.m */; };
+		98ECC1851C5204D4009490C8 /* AirTunesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98ECC1841C5204D4009490C8 /* AirTunesUITests.m */; };
+		98ECC1931C520849009490C8 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98ECC1921C520849009490C8 /* Spotify.framework */; };
+		98ECC1961C520C12009490C8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98ECC1951C520C12009490C8 /* AVFoundation.framework */; };
+		98ECC1981C520C1B009490C8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98ECC1971C520C1B009490C8 /* SystemConfiguration.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		98ECC1761C5204D4009490C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98ECC1541C5204D4009490C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 98ECC15B1C5204D4009490C8;
+			remoteInfo = AirTunes;
+		};
+		98ECC1811C5204D4009490C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98ECC1541C5204D4009490C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 98ECC15B1C5204D4009490C8;
+			remoteInfo = AirTunes;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		989A7EC21C531C4000E41DEE /* ParseDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseDataManager.h; sourceTree = "<group>"; };
+		989A7EC31C531C4000E41DEE /* ParseDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseDataManager.m; sourceTree = "<group>"; };
+		989A7ED11C5321CC00E41DEE /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		989A7ED21C5321CC00E41DEE /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		989A7ED91C53240F00E41DEE /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		989A7EDB1C53241900E41DEE /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		989A7EDD1C53242300E41DEE /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		989A7EDF1C53242D00E41DEE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		989A7EE11C53243600E41DEE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		989A7EE31C53243E00E41DEE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		989A7EE51C53244700E41DEE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		989A7EE71C53244F00E41DEE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		989A7EE91C53246500E41DEE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		989A7EEB1C53247100E41DEE /* libz.1.1.3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.1.3.tbd; path = usr/lib/libz.1.1.3.tbd; sourceTree = SDKROOT; };
+		989A7EED1C53248000E41DEE /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
+		989A7EEF1C53248D00E41DEE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		989A7EF11C53249600E41DEE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		989A7EF31C53249C00E41DEE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		989A7EF51C5324A800E41DEE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		989A7EF81C532EEE00E41DEE /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
+		989A7EF91C532EEE00E41DEE /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		989A7F021C5361FA00E41DEE /* CreateGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateGroupViewController.h; sourceTree = "<group>"; };
+		989A7F031C5361FA00E41DEE /* CreateGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateGroupViewController.m; sourceTree = "<group>"; };
+		989A7F051C537F1800E41DEE /* PlaylistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistViewController.h; sourceTree = "<group>"; };
+		989A7F061C537F1800E41DEE /* PlaylistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistViewController.m; sourceTree = "<group>"; };
+		989A7F081C53993F00E41DEE /* RequestSongsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestSongsViewController.h; sourceTree = "<group>"; };
+		989A7F091C53993F00E41DEE /* RequestSongsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestSongsViewController.m; sourceTree = "<group>"; };
+		98ECC15C1C5204D4009490C8 /* AirTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirTunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		98ECC1601C5204D4009490C8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		98ECC1621C5204D4009490C8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		98ECC1631C5204D4009490C8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		98ECC1691C5204D4009490C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		98ECC16B1C5204D4009490C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		98ECC1701C5204D4009490C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98ECC1751C5204D4009490C8 /* AirTunesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirTunesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		98ECC1791C5204D4009490C8 /* AirTunesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirTunesTests.m; sourceTree = "<group>"; };
+		98ECC17B1C5204D4009490C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98ECC1801C5204D4009490C8 /* AirTunesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirTunesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		98ECC1841C5204D4009490C8 /* AirTunesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirTunesUITests.m; sourceTree = "<group>"; };
+		98ECC1861C5204D4009490C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98ECC1921C520849009490C8 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
+		98ECC1951C520C12009490C8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		98ECC1971C520C1B009490C8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		98ECC1591C5204D4009490C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				989A7EF71C53251200E41DEE /* AudioToolbox.framework in Frameworks */,
+				989A7EEE1C53248000E41DEE /* libstdc++.6.tbd in Frameworks */,
+				989A7EEC1C53247100E41DEE /* libz.1.1.3.tbd in Frameworks */,
+				989A7EEA1C53246500E41DEE /* libsqlite3.tbd in Frameworks */,
+				989A7ED71C5321CC00E41DEE /* Parse.framework in Frameworks */,
+				989A7ED81C5321CC00E41DEE /* Bolts.framework in Frameworks */,
+				98ECC1981C520C1B009490C8 /* SystemConfiguration.framework in Frameworks */,
+				98ECC1961C520C12009490C8 /* AVFoundation.framework in Frameworks */,
+				98ECC1931C520849009490C8 /* Spotify.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98ECC1721C5204D4009490C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98ECC17D1C5204D4009490C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		989A7EC11C531B3000E41DEE /* Data Managers */ = {
+			isa = PBXGroup;
+			children = (
+				989A7EC21C531C4000E41DEE /* ParseDataManager.h */,
+				989A7EC31C531C4000E41DEE /* ParseDataManager.m */,
+			);
+			name = "Data Managers";
+			sourceTree = "<group>";
+		};
+		98ECC1531C5204D4009490C8 = {
+			isa = PBXGroup;
+			children = (
+				989A7EC11C531B3000E41DEE /* Data Managers */,
+				98ECC15E1C5204D4009490C8 /* AirTunes */,
+				98ECC1781C5204D4009490C8 /* AirTunesTests */,
+				98ECC1831C5204D4009490C8 /* AirTunesUITests */,
+				98ECC15D1C5204D4009490C8 /* Products */,
+				98ECC1941C520866009490C8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		98ECC15D1C5204D4009490C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				98ECC15C1C5204D4009490C8 /* AirTunes.app */,
+				98ECC1751C5204D4009490C8 /* AirTunesTests.xctest */,
+				98ECC1801C5204D4009490C8 /* AirTunesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		98ECC15E1C5204D4009490C8 /* AirTunes */ = {
+			isa = PBXGroup;
+			children = (
+				989A7EF81C532EEE00E41DEE /* LogInViewController.h */,
+				989A7EF91C532EEE00E41DEE /* LogInViewController.m */,
+				989A7F021C5361FA00E41DEE /* CreateGroupViewController.h */,
+				989A7F031C5361FA00E41DEE /* CreateGroupViewController.m */,
+				989A7F051C537F1800E41DEE /* PlaylistViewController.h */,
+				989A7F061C537F1800E41DEE /* PlaylistViewController.m */,
+				989A7F081C53993F00E41DEE /* RequestSongsViewController.h */,
+				989A7F091C53993F00E41DEE /* RequestSongsViewController.m */,
+				98ECC1621C5204D4009490C8 /* AppDelegate.h */,
+				98ECC1631C5204D4009490C8 /* AppDelegate.m */,
+				98ECC1681C5204D4009490C8 /* Main.storyboard */,
+				98ECC16B1C5204D4009490C8 /* Assets.xcassets */,
+				98ECC1701C5204D4009490C8 /* Info.plist */,
+				98ECC15F1C5204D4009490C8 /* Supporting Files */,
+			);
+			path = AirTunes;
+			sourceTree = "<group>";
+		};
+		98ECC15F1C5204D4009490C8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				98ECC1601C5204D4009490C8 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		98ECC1781C5204D4009490C8 /* AirTunesTests */ = {
+			isa = PBXGroup;
+			children = (
+				98ECC1791C5204D4009490C8 /* AirTunesTests.m */,
+				98ECC17B1C5204D4009490C8 /* Info.plist */,
+			);
+			path = AirTunesTests;
+			sourceTree = "<group>";
+		};
+		98ECC1831C5204D4009490C8 /* AirTunesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				98ECC1841C5204D4009490C8 /* AirTunesUITests.m */,
+				98ECC1861C5204D4009490C8 /* Info.plist */,
+			);
+			path = AirTunesUITests;
+			sourceTree = "<group>";
+		};
+		98ECC1941C520866009490C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				989A7EF51C5324A800E41DEE /* UIKit.framework */,
+				989A7EF31C53249C00E41DEE /* StoreKit.framework */,
+				989A7EF11C53249600E41DEE /* Security.framework */,
+				989A7EEF1C53248D00E41DEE /* QuartzCore.framework */,
+				989A7EED1C53248000E41DEE /* libstdc++.6.tbd */,
+				989A7EEB1C53247100E41DEE /* libz.1.1.3.tbd */,
+				989A7EE91C53246500E41DEE /* libsqlite3.tbd */,
+				989A7EE71C53244F00E41DEE /* Foundation.framework */,
+				989A7EE51C53244700E41DEE /* CoreLocation.framework */,
+				989A7EE31C53243E00E41DEE /* CoreGraphics.framework */,
+				989A7EE11C53243600E41DEE /* CFNetwork.framework */,
+				989A7EDF1C53242D00E41DEE /* AudioToolbox.framework */,
+				989A7EDD1C53242300E41DEE /* Accounts.framework */,
+				989A7EDB1C53241900E41DEE /* Social.framework */,
+				989A7ED91C53240F00E41DEE /* AdSupport.framework */,
+				989A7ED11C5321CC00E41DEE /* Parse.framework */,
+				989A7ED21C5321CC00E41DEE /* Bolts.framework */,
+				98ECC1971C520C1B009490C8 /* SystemConfiguration.framework */,
+				98ECC1951C520C12009490C8 /* AVFoundation.framework */,
+				98ECC1921C520849009490C8 /* Spotify.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		98ECC15B1C5204D4009490C8 /* AirTunes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98ECC1891C5204D4009490C8 /* Build configuration list for PBXNativeTarget "AirTunes" */;
+			buildPhases = (
+				98ECC1581C5204D4009490C8 /* Sources */,
+				98ECC1591C5204D4009490C8 /* Frameworks */,
+				98ECC15A1C5204D4009490C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AirTunes;
+			productName = AirTunes;
+			productReference = 98ECC15C1C5204D4009490C8 /* AirTunes.app */;
+			productType = "com.apple.product-type.application";
+		};
+		98ECC1741C5204D4009490C8 /* AirTunesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98ECC18C1C5204D4009490C8 /* Build configuration list for PBXNativeTarget "AirTunesTests" */;
+			buildPhases = (
+				98ECC1711C5204D4009490C8 /* Sources */,
+				98ECC1721C5204D4009490C8 /* Frameworks */,
+				98ECC1731C5204D4009490C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				98ECC1771C5204D4009490C8 /* PBXTargetDependency */,
+			);
+			name = AirTunesTests;
+			productName = AirTunesTests;
+			productReference = 98ECC1751C5204D4009490C8 /* AirTunesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		98ECC17F1C5204D4009490C8 /* AirTunesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98ECC18F1C5204D4009490C8 /* Build configuration list for PBXNativeTarget "AirTunesUITests" */;
+			buildPhases = (
+				98ECC17C1C5204D4009490C8 /* Sources */,
+				98ECC17D1C5204D4009490C8 /* Frameworks */,
+				98ECC17E1C5204D4009490C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				98ECC1821C5204D4009490C8 /* PBXTargetDependency */,
+			);
+			name = AirTunesUITests;
+			productName = AirTunesUITests;
+			productReference = 98ECC1801C5204D4009490C8 /* AirTunesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98ECC1541C5204D4009490C8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Akash Subramanian";
+				TargetAttributes = {
+					98ECC15B1C5204D4009490C8 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = V8X6K49SBW;
+					};
+					98ECC1741C5204D4009490C8 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 98ECC15B1C5204D4009490C8;
+					};
+					98ECC17F1C5204D4009490C8 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 98ECC15B1C5204D4009490C8;
+					};
+				};
+			};
+			buildConfigurationList = 98ECC1571C5204D4009490C8 /* Build configuration list for PBXProject "AirTunes" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 98ECC1531C5204D4009490C8;
+			productRefGroup = 98ECC15D1C5204D4009490C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				98ECC15B1C5204D4009490C8 /* AirTunes */,
+				98ECC1741C5204D4009490C8 /* AirTunesTests */,
+				98ECC17F1C5204D4009490C8 /* AirTunesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		98ECC15A1C5204D4009490C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98ECC16C1C5204D4009490C8 /* Assets.xcassets in Resources */,
+				98ECC16A1C5204D4009490C8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98ECC1731C5204D4009490C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98ECC17E1C5204D4009490C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		98ECC1581C5204D4009490C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				989A7F041C5361FA00E41DEE /* CreateGroupViewController.m in Sources */,
+				989A7EFA1C532EEE00E41DEE /* LogInViewController.m in Sources */,
+				98ECC1641C5204D4009490C8 /* AppDelegate.m in Sources */,
+				989A7F0A1C53993F00E41DEE /* RequestSongsViewController.m in Sources */,
+				989A7EC41C531C4000E41DEE /* ParseDataManager.m in Sources */,
+				98ECC1611C5204D4009490C8 /* main.m in Sources */,
+				989A7F071C537F1800E41DEE /* PlaylistViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98ECC1711C5204D4009490C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98ECC17A1C5204D4009490C8 /* AirTunesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98ECC17C1C5204D4009490C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98ECC1851C5204D4009490C8 /* AirTunesUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		98ECC1771C5204D4009490C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 98ECC15B1C5204D4009490C8 /* AirTunes */;
+			targetProxy = 98ECC1761C5204D4009490C8 /* PBXContainerItemProxy */;
+		};
+		98ECC1821C5204D4009490C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 98ECC15B1C5204D4009490C8 /* AirTunes */;
+			targetProxy = 98ECC1811C5204D4009490C8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		98ECC1681C5204D4009490C8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				98ECC1691C5204D4009490C8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		98ECC1871C5204D4009490C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		98ECC1881C5204D4009490C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		98ECC18A1C5204D4009490C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = AirTunes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pennapps.AirTunes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s arm64";
+			};
+			name = Debug;
+		};
+		98ECC18B1C5204D4009490C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = AirTunes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = pennapps.AirTunes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s arm64";
+			};
+			name = Release;
+		};
+		98ECC18D1C5204D4009490C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AirTunesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pennapps.AirTunesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirTunes.app/AirTunes";
+			};
+			name = Debug;
+		};
+		98ECC18E1C5204D4009490C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AirTunesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pennapps.AirTunesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirTunes.app/AirTunes";
+			};
+			name = Release;
+		};
+		98ECC1901C5204D4009490C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AirTunesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pennapps.AirTunesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AirTunes;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		98ECC1911C5204D4009490C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AirTunesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pennapps.AirTunesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AirTunes;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		98ECC1571C5204D4009490C8 /* Build configuration list for PBXProject "AirTunes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98ECC1871C5204D4009490C8 /* Debug */,
+				98ECC1881C5204D4009490C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98ECC1891C5204D4009490C8 /* Build configuration list for PBXNativeTarget "AirTunes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98ECC18A1C5204D4009490C8 /* Debug */,
+				98ECC18B1C5204D4009490C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98ECC18C1C5204D4009490C8 /* Build configuration list for PBXNativeTarget "AirTunesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98ECC18D1C5204D4009490C8 /* Debug */,
+				98ECC18E1C5204D4009490C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98ECC18F1C5204D4009490C8 /* Build configuration list for PBXNativeTarget "AirTunesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98ECC1901C5204D4009490C8 /* Debug */,
+				98ECC1911C5204D4009490C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 98ECC1541C5204D4009490C8 /* Project object */;
+}
