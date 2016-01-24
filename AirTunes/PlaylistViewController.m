@@ -10,6 +10,8 @@
 #import <Parse/Parse.h>
 #import "AppDelegate.h"
 #import <Spotify/Spotify.h>
+#import <QuartzCore/QuartzCore.h>
+
 #define searchAPIURL "https://api.spotify.com/v1/search?"
 
 @interface PlaylistViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -22,13 +24,19 @@
 @property (nonatomic, strong) NSString *artist;
 @property (nonatomic, strong) NSString *songTitle;
 @property (nonatomic, strong) NSMutableDictionary *details;
-@property (nonatomic) BOOL isMusicPlayer;
+@property (nonatomic) BOOL isPaused;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSString *currentSongURI;
+@property (weak, nonatomic) IBOutlet UIImageView *albumImageView;
+@property (strong, nonatomic) UIImageView *photoImageView;
+@property (weak, nonatomic) IBOutlet UILabel *artistLabel;
+@property (weak, nonatomic) IBOutlet UIButton *playerButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
+@property (weak, nonatomic) IBOutlet UIButton *leaveGroupButton;
 @end
 
 @implementation PlaylistViewController
-
+int count = 0;
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
@@ -41,15 +49,27 @@
     _playlistTableView.dataSource = self;
     _details = [[NSMutableDictionary alloc] init];
     _queueOfSongs = [[NSMutableArray alloc] init];
-    _isMusicPlayer = NO;
+    _isPaused = NO;
     _timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(updatePlaylist) userInfo:nil repeats:YES];
     
+    _leaveGroupButton.layer.cornerRadius = 15;
+    _leaveGroupButton.layer.borderWidth = 1;
+    _leaveGroupButton.layer.borderColor = [UIColor redColor].CGColor;
+    
+}
+- (IBAction)nextSong:(UIButton *)sender {
+    [self playNewSong];
+}
+- (IBAction)resignKeyboardOnTap:(UITapGestureRecognizer *)sender {
+    [_searchSongTextField resignFirstResponder];
 }
 
 - (void) updatePlaylist {
-    if (![_player isPlaying] && !_queueOfSongs.count == 0 && _isMusicPlayer) {
+    if (![_player isPlaying] && !_queueOfSongs.count == 0 && !_isPaused && count != 0) {
         NSLog(@"%@", @"Going to play next song");
         [self playNewSong];
+    } else if (_queueOfSongs.count == 0 && ![_player isPlaying]) {
+        [_playerButton setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
     }
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         PFQuery *query = [[[PFQuery queryWithClassName:@"Songs"] whereKey:@"groupId" equalTo:_groupId] orderByAscending:@"createdAt"];
@@ -60,10 +80,12 @@
                     NSString *uri = [obj objectForKey:@"spotifyuri"];
                     NSString *title = [obj objectForKey:@"songTitle"];
                     NSString *artist = [obj objectForKey:@"artist"];
+                    NSString *imageURL = [obj objectForKey:@"imageurl"];
                     NSMutableDictionary *song = [[NSMutableDictionary alloc] init];
                     [song setObject:uri forKey:@"uri"];
                     [song setObject:title forKey:@"title"];
                     [song setObject:artist forKey:@"artist"];
+                    [song setObject:imageURL forKey:@"photo"];
                     [_queueOfSongs addObject:song];
                     
                     
@@ -90,23 +112,55 @@
     NSString *title = [[_queueOfSongs firstObject] objectForKey:@"title"];
     NSString *artist = [[_queueOfSongs firstObject] objectForKey:@"artist"];
     NSLog(@"Now playing %@", title);
+    NSString *imageURL = [[_queueOfSongs firstObject] objectForKey:@"photo"];
     AppDelegate *appdelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self playUsingSession: appdelegate.session];
     });
     [self playUsingSession: appdelegate.session];
-    _nowPlayingLabel.text = [NSString stringWithFormat:@"%@ by %@", title, artist];
+    if (title == NULL || title.length == 0) {
+        _nowPlayingLabel.text = @"Song Name";
+    } else {
+         _nowPlayingLabel.text = [NSString stringWithFormat:@"%@", title];
+    }
+    if (artist == NULL || artist.length == 0) {
+        _artistLabel.text = @"Artist";
+    } else {
+        _artistLabel.text = [NSString stringWithFormat:@"%@", artist];
 
+    }
+    
+   
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
+        // Switch to Main Queue as we will be updating the UI.
+        dispatch_async(dispatch_get_main_queue(), ^{
+             _albumImageView.frame = CGRectIntegral(_albumImageView.frame);
+            _albumImageView.image = [UIImage imageWithData:imageData];
+        });
+    });
 }
 
 - (IBAction)toggleMusicPlayer:(UIButton *)sender {
-    
-    _isMusicPlayer = !_isMusicPlayer;
-    if (_isMusicPlayer == YES) {
+    if (count == 0) {
+         [_playerButton setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
         [self playNewSong];
-    } else {
-        
+        count ++;
+    } else if ([_player isPlaying] && !_isPaused){
+        _isPaused = YES;
+        [_playerButton setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+        [_player setIsPlaying:NO callback:^(NSError *error) {
+            NSLog(@"error %@", error);
+        }];
+    } else if (![_player isPlaying] && _isPaused) {
+        _isPaused = NO;
+         [_playerButton setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
+        [_player setIsPlaying:YES callback:^(NSError *error) {
+            NSLog(@"error %@", error);
+        }];
     }
+    
 }
 
 - (IBAction)leaveGroup:(UIButton *)sender {
@@ -120,10 +174,88 @@
     
 }
 - (IBAction)addSongToPlaylist:(UIButton *)sender {
-    
+    _details = [[NSMutableDictionary alloc] init];
+    if (_searchSongTextField.text == NULL || _searchSongTextField.text.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"No query entered"
+                              message:@"Seems like you did not search for anything."
+                              delegate:self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil, nil];
+        dispatch_async(dispatch_get_main_queue(), ^{[alert show];});
+        
+    } else {
+        
+        NSString *url = [NSString stringWithFormat:@"%sq=%@&limit=1&market=US&type=track", searchAPIURL, _searchSongTextField.text];
+        url = [url stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+        NSURL *searchURL = [NSURL URLWithString:url];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:searchURL];
+        [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                         completionHandler:
+          ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+              // See blocks in the lecture slides.
+              NSMutableDictionary *dictionary =
+              [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+              _songId = [[[[[dictionary objectForKey:@"tracks"] objectForKey:@"items"] firstObject] objectForKey:@"uri"] mutableCopy];
+              _songTitle = [[[[[dictionary objectForKey:@"tracks"] objectForKey:@"items"] firstObject] objectForKey:@"name"]mutableCopy];
+              _artist = [[[[[[[dictionary objectForKey:@"tracks"] objectForKey:@"items"] firstObject] objectForKey:@"artists"] firstObject] objectForKey:@"name"] mutableCopy];
+              
+              NSString *imageURL = [[[[[[[dictionary objectForKey:@"tracks"] objectForKey:@"items"] firstObject] objectForKey:@"album"] objectForKey:@"images"] firstObject] objectForKey:@"url"];
+              NSLog(@"IMAGE URL IS %@", imageURL);
+              
+              if (_songId == nil || _songId.length == 0) {
+                  
+                  dispatch_async(dispatch_get_main_queue(), ^{
+                      UIAlertView *alert = [[UIAlertView alloc]
+                                            initWithTitle:@"Cannot find track"
+                                            message:@"We cannot find the track you requested."
+                                            delegate:nil
+                                            cancelButtonTitle:@"OK"
+                                            otherButtonTitles:nil];
+                      
+                      [alert show];
+                  });
+              } else {
+                  //_details = [[NSMutableDictionary alloc] init];
+                  [_details setObject:_songId forKey:@"uri"];
+                  NSLog(@"URI = %@", _songId);
+                  
+                  if (_artist == nil || _artist.length == 0) {
+                      [_details setObject:@" " forKey:@"artist"];
+                  } else {
+                      [_details setObject:_artist forKey:@"artist"];
+                      NSLog(@"artist = %@", _artist);
+                  }
+                  if (_songTitle == nil || _songTitle.length == 0) {
+                      [_details setObject:@" " forKey:@"title"];
+                  } else {
+                      [_details setObject:_songTitle forKey:@"title"];
+                      NSLog(@"title = %@", _songTitle);
+                  }
+                  if (imageURL == nil || imageURL.length == 0) {
+                      [_details setObject:@" " forKey:@"photo"];
+                  } else {
+                      [_details setObject:imageURL forKey:@"photo"];
+                  }
+                  
+                  
+                  PFObject *request = [PFObject objectWithClassName:@"Songs"];
+                  [request setObject:_groupId forKey:@"groupId"];
+                  [request setObject:_songId forKey:@"spotifyuri"];
+                  [request setObject:_songTitle forKey:@"songTitle"];
+                  [request setObject:_artist forKey:@"artist"];
+                  [request setObject:imageURL forKey:@"imageurl"];
+                  [request saveInBackground];
+                  
+              }
+              
+          }] resume];
+    }
+
 }
 
 - (IBAction)doneSearchingSong:(UITextField *)sender {
+    _searchSongTextField.text = @"";
     // add song to playlist
     _details = [[NSMutableDictionary alloc] init];
     if (_searchSongTextField.text == NULL || _searchSongTextField.text.length == 0) {
@@ -150,6 +282,9 @@
               _songId = [[[[[dictionary objectForKey:@"tracks"] objectForKey:@"items"] firstObject] objectForKey:@"uri"] mutableCopy];
               _songTitle = [[[[[dictionary objectForKey:@"tracks"] objectForKey:@"items"] firstObject] objectForKey:@"name"]mutableCopy];
               _artist = [[[[[[[dictionary objectForKey:@"tracks"] objectForKey:@"items"] firstObject] objectForKey:@"artists"] firstObject] objectForKey:@"name"] mutableCopy];
+              
+              NSString *imageURL = [[[[[[[dictionary objectForKey:@"tracks"] objectForKey:@"items"] firstObject] objectForKey:@"album"] objectForKey:@"images"] firstObject] objectForKey:@"url"];
+              NSLog(@"IMAGE URL IS %@", imageURL);
               
               if (_songId == nil || _songId.length == 0) {
                  
@@ -180,12 +315,19 @@
                       [_details setObject:_songTitle forKey:@"title"];
                        NSLog(@"title = %@", _songTitle);
                   }
+                  if (imageURL == nil || imageURL.length == 0) {
+                      [_details setObject:@" " forKey:@"photo"];
+                  } else {
+                      [_details setObject:imageURL forKey:@"photo"];
+                  }
+                 
                   
                   PFObject *request = [PFObject objectWithClassName:@"Songs"];
                   [request setObject:_groupId forKey:@"groupId"];
                   [request setObject:_songId forKey:@"spotifyuri"];
                   [request setObject:_songTitle forKey:@"songTitle"];
                   [request setObject:_artist forKey:@"artist"];
+                  [request setObject:imageURL forKey:@"imageurl"];
                   [request saveInBackground];
                  
               }

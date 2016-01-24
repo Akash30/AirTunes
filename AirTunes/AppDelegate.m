@@ -27,6 +27,8 @@
     [[SPTAuth defaultInstance] setRedirectURL:[NSURL URLWithString:@"airtunes-login://"]];
     [[SPTAuth defaultInstance] setRequestedScopes:@[SPTAuthStreamingScope]];
     
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
+    
 //    // Construct a login URL and open it
     
    // NSURL *loginURL = [[SPTAuth defaultInstance] loginURL];

@@ -9,6 +9,7 @@
 #import "CreateGroupViewController.h"
 #import <Parse/Parse.h>
 #import "PlaylistViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface CreateGroupViewController () <UITextFieldDelegate>
 
@@ -19,8 +20,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _groupNameTextField.delegate = self;
+//    _groupNameTextField.delegate = self;
+//    _groupNameTextField.layer.cornerRadius=8.0f;
+//    _groupNameTextField.layer.masksToBounds=YES;
+//    _groupNameTextField.layer.borderColor=[[UIColor redColor]CGColor];
+//    _groupNameTextField.layer.borderWidth= 1.0f;
+    
+  
+    
 }
+
 - (IBAction)createGroup:(UIButton *)sender {
     if (_groupNameTextField.text != NULL || _groupNameTextField.text.length > 0) {
         PFQuery *query = [[PFQuery queryWithClassName:@"Group"] whereKey:@"groupId" equalTo:_groupNameTextField.text];
@@ -40,6 +49,10 @@
             [alert show];
         }
     }
+
+}
+- (IBAction)resignKeyBoard:(UITapGestureRecognizer *)sender {
+    [_groupNameTextField resignFirstResponder];
 }
 
 - (IBAction)joinGroup:(UIButton *)sender {
@@ -84,6 +97,7 @@
 - (void)keyboardDidShow:(NSNotification *)notification
 {
     // Assign new frame to your view
+    NSLog(@"ksdjhkasdfjaksjdfhaks");
     [self.view setFrame:CGRectMake(0,-80,320,460)]; //here taken -20 for example i.e. your view will be scrolled to -20. change its value according to your requirement.
     
 }
